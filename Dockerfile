@@ -1,11 +1,12 @@
 FROM node:16
 
-WORKDIR /usr/src/app
+WORKDIR /home/node/app
 
-COPY package.json .
+COPY . /home/node/app/
+RUN npm install
 RUN npm install express
-COPY . .
+CMD npm start
 
-EXPOSE 3001
+EXPOSE 3001 3001
 
 CMD ["node", "hello.js"]
